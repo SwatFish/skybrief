@@ -4,13 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/aviator-s-compass/",
-
   server: {
     host: "::",
     port: 8080,
   },
-
+  base: "/aviator-s-compass/",
   plugins: [
     react(),
     mode === "development" && componentTagger(),
