@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import { PlaceholderPage } from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +17,42 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route
+            path="/planning"
+            element={
+              <PlaceholderPage
+                title="Flight Planning"
+                description="Route planning, fuel calculations, and weight & balance tools coming soon."
+              />
+            }
+          />
+          <Route
+            path="/notam"
+            element={
+              <PlaceholderPage
+                title="NOTAM Viewer"
+                description="Search and filter NOTAMs by route, airport, or FIR coming soon."
+              />
+            }
+          />
+          <Route
+            path="/airports"
+            element={
+              <PlaceholderPage
+                title="Airport Directory"
+                description="Comprehensive airport information database coming soon."
+              />
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <PlaceholderPage
+                title="Settings"
+                description="Customize units, preferences, and display options coming soon."
+              />
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
