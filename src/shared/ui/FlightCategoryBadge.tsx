@@ -21,28 +21,42 @@ export function FlightCategoryBadge({
   showLabel = false,
   className,
 }: FlightCategoryBadgeProps) {
-  const sizeClasses = {
-    sm: 'text-xs px-2 py-0.5',
-    md: 'text-sm px-3 py-1',
-    lg: 'text-base px-4 py-1.5 font-semibold',
+  const dotSizes = {
+    sm: 'w-2.5 h-2.5',
+    md: 'w-3 h-3',
+    lg: 'w-4 h-4',
   };
 
-  const categoryClasses: Record<FlightCategory, string> = {
-    VFR: 'bg-gradient-to-r from-vfr/90 via-vfr/60 to-background/80 text-vfr-foreground border border-vfr/30',
-    MVFR: 'bg-gradient-to-r from-mvfr/90 via-mvfr/60 to-background/80 text-mvfr-foreground border border-mvfr/30',
-    IFR: 'bg-gradient-to-r from-ifr/90 via-ifr/60 to-background/80 text-ifr-foreground border border-ifr/30',
-    LIFR: 'bg-gradient-to-r from-lifr/90 via-lifr/60 to-background/80 text-lifr-foreground border border-lifr/30',
+  const textSizes = {
+    sm: 'text-xs',
+    md: 'text-sm font-medium',
+    lg: 'text-base font-semibold',
+  };
+
+  const categoryColors: Record<FlightCategory, string> = {
+    VFR: 'bg-vfr',
+    MVFR: 'bg-mvfr',
+    IFR: 'bg-ifr',
+    LIFR: 'bg-lifr',
+  };
+
+  const textColors: Record<FlightCategory, string> = {
+    VFR: 'text-vfr',
+    MVFR: 'text-mvfr',
+    IFR: 'text-ifr',
+    LIFR: 'text-lifr',
   };
 
   return (
     <div className={cn('flex items-center gap-2', className)}>
       <span
         className={cn(
-          'rounded font-bold tracking-wide transition-all',
-          sizeClasses[size],
-          categoryClasses[category]
+          'rounded-full shrink-0',
+          dotSizes[size],
+          categoryColors[category]
         )}
-      >
+      />
+      <span className={cn(textSizes[size], textColors[category])}>
         {category}
       </span>
       {showLabel && (
