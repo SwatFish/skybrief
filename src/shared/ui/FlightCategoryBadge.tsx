@@ -28,10 +28,10 @@ export function FlightCategoryBadge({
   };
 
   const categoryClasses: Record<FlightCategory, string> = {
-    VFR: 'bg-vfr text-vfr-foreground glow-vfr',
-    MVFR: 'bg-mvfr text-mvfr-foreground glow-mvfr',
-    IFR: 'bg-ifr text-ifr-foreground glow-ifr',
-    LIFR: 'bg-lifr text-lifr-foreground glow-lifr',
+    VFR: 'bg-gradient-to-br from-vfr via-vfr to-vfr/70 text-vfr-foreground glow-vfr',
+    MVFR: 'bg-gradient-to-br from-mvfr via-mvfr to-mvfr/70 text-mvfr-foreground glow-mvfr',
+    IFR: 'bg-gradient-to-br from-ifr via-ifr to-ifr/70 text-ifr-foreground glow-ifr',
+    LIFR: 'bg-gradient-to-br from-lifr via-lifr to-lifr/70 text-lifr-foreground glow-lifr',
   };
 
   return (
