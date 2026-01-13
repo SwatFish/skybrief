@@ -157,22 +157,25 @@ export function TafTimeline({ taf, className }: TafTimelineProps) {
       {/* Timeline */}
       <div className="relative">
         {/* Timeline Line */}
-        <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border" />
+        <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-border via-primary/30 to-border" />
 
         {/* Periods */}
-        <div className="space-y-4 pl-10">
+        <div className="space-y-3 pl-10">
           {taf.periods.map((period, index) => (
-            <div key={index} className="relative">
-              {/* Timeline Dot */}
+            <div key={index} className="relative group">
+              {/* Timeline Dot with glow */}
               <div
                 className={cn(
-                  'absolute -left-10 top-3 w-3 h-3 rounded-full border-2 border-background',
-                  period.flightCategory === 'VFR' && 'bg-vfr',
-                  period.flightCategory === 'MVFR' && 'bg-mvfr',
-                  period.flightCategory === 'IFR' && 'bg-ifr',
-                  period.flightCategory === 'LIFR' && 'bg-lifr'
+                  'absolute -left-10 top-3 w-3 h-3 rounded-full border-2 border-background transition-all duration-200',
+                  'group-hover:scale-125',
+                  period.flightCategory === 'VFR' && 'bg-vfr shadow-[0_0_8px_hsl(var(--vfr)/0.6)]',
+                  period.flightCategory === 'MVFR' && 'bg-mvfr shadow-[0_0_8px_hsl(var(--mvfr)/0.6)]',
+                  period.flightCategory === 'IFR' && 'bg-ifr shadow-[0_0_8px_hsl(var(--ifr)/0.6)]',
+                  period.flightCategory === 'LIFR' && 'bg-lifr shadow-[0_0_8px_hsl(var(--lifr)/0.6)]'
                 )}
               />
+              {/* Connector line for hover */}
+              <div className="absolute -left-7 top-4 w-4 h-px bg-gradient-to-r from-transparent to-border/50 group-hover:to-primary/50 transition-colors" />
               <PeriodCard
                 period={period}
                 previousCategory={index > 0 ? taf.periods[index - 1].flightCategory : undefined}
