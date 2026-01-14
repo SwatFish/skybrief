@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://swatfish.github.io/aviator-s-compass",
+  "homepage": "https://swatfish.github.io/skybrief",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

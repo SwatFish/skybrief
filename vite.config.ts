@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: "/aviator-s-compass/",
+  base: "/skybrief/",
   plugins: [
     react(),
     mode === "development" && componentTagger(),
