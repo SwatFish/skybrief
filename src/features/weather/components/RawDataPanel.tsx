@@ -43,7 +43,7 @@ export function RawDataPanel({ title, data, defaultOpen = false, className }: Ra
           </pre>
           <button
             onClick={handleCopy}
-            className="absolute top-5 right-5 p-1.5 rounded bg-secondary/50 hover:bg-secondary transition-colors"
+            className="absolute top-1/2 right-3 -translate-y-1/2 p-1.5 rounded bg-secondary/50 hover:bg-secondary transition-colors"
             title="Copy to clipboard"
           >
             {copied ? (
